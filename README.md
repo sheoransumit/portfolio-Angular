@@ -1,8 +1,6 @@
 # portfolio-Angular
 
-Clone and run portfolio-backend before running the frontend.
+1. replace e-mail & password with yours.
+2. run npm install.
 
-1. run npm install.
-2. and then npm start.
-
-Go to http://localhost:8000
+Go to http://localhost:8080
