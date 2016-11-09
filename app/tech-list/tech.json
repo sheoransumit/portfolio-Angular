@@ -1,0 +1,26 @@
+[
+    {
+        "id": "tech1", 
+        "imageUrl": "img/tech/tech1.png"
+    },
+    {
+        "id": "tech2", 
+        "imageUrl": "img/tech/tech2.png"
+    },
+    {
+        "id": "tech3", 
+        "imageUrl": "img/tech/tech3.png"
+    },
+    {
+        "id": "tech4", 
+        "imageUrl": "img/tech/tech4.png"
+    },
+    {
+        "id": "tech5", 
+        "imageUrl": "img/tech/tech5.png"
+    },
+    {
+        "id": "tech5", 
+        "imageUrl": "img/tech/tech6.jpg"
+    }
+]

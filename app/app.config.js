@@ -10,6 +10,12 @@ angular.
         when('/home', {
           template: '<home></home>'
         }).
+        when('/about', {
+          template: '<about></about>'
+        }).
+        when('/techstack', {
+          template: '<tech-stack></tech-stack>'
+        }).
         when('/phones', {
           template: '<phone-list></phone-list>'
         }).

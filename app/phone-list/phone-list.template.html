@@ -1,35 +1,38 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-2">
-      <!--Sidebar content-->
+  <div class="col-xs-2 col-sm-4 col-md-4"><div class="row" style="height:32px; border-bottom:1px solid #ababab;"></div><div class="row"></div></div>
+  <div class="col-xs-8 col-sm-4 col-md-4">
+    <h3 class="text-center"> Portfolio </h3>
+  </div>
+  <div class="col-xs-2 col-sm-4 col-md-4"><div class="row" style="height:32px; border-bottom:1px solid #ababab;"></div><div class="row"></div></div>
+<!--     <div class="col-xs-12">
 
-      <p>
-        Search:
-        <input ng-model="$ctrl.query" />
-      </p>
-
-      <p>
-        Sort by:
-        <select ng-model="$ctrl.orderProp">
-          <option value="name">Alphabetical</option>
-          <option value="age">Newest</option>
-        </select>
-      </p>
-
+    <div class="row search-bar">
+      <div class="inner-addon left-addon" >
+        <i class="glyphicon glyphicon-search"></i>
+        <input ng-model="$ctrl.query"/>
+      </div>
+      <div class="search-options" >
+        <button class="visible-xs" data-toggle="collapse" data-target="#SearchParameters" id="filter-collapse" >Options&nbsp;<span class="glyphicon glyphicon-triangle-bottom" style="color:#565656;"></span></button>
+        <div class=" SearchParameters" id="SearchParameters">
+        <form>
+          <ul class="inline-list" style="padding-left:5px;">
+            <li class="hover_effects_checkbox" id= "id1" onClick="reply_click(this.id)"><input ng-model="$ctrl.orderProp" class="hidden-check" type="radio" value="name" ><span class="checkboxes"></span><label class="checkbox-inline" >Most Recent</label></li>
+            <li class="hover_effects_checkbox" id= "id2" onClick="reply_click(this.id)"><input ng-model="$ctrl.orderProp" class="hidden-check" type="radio" value="Alphabetical" ><span class="checkboxes"></span><label class="checkbox-inline" >Alphabetically</label></li>
+          </ul>
+        </form>
+        </div>
+      </div>
     </div>
-    <div class="col-md-10">
-      <!--Body content-->
 
+    </div> -->
+
+    <div class="col-xs-12">
       <ul class="phones">
-        <li ng-repeat="phone in $ctrl.phones | filter:$ctrl.query | orderBy:$ctrl.orderProp" class="thumbnail">
-          <a href="#!/phones/{{phone.id}}" class="thumb">
+        <li ng-repeat="phone in $ctrl.phones | filter:$ctrl.query | orderBy:$ctrl.orderProp" class="col-xs-12 col-sm-6 col-md-4">
+          <a href="#!/phones/{{phone.id}}" class="thumbnail">
             <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}" />
           </a>
-          <a href="#!/phones/{{phone.id}}">{{phone.name}}</a>
+          <a href="#!/phones/{{phone.id}}" class="text-center">{{phone.name}}</a>
           <p>{{phone.snippet}}</p>
         </li>
       </ul>
-
     </div>
-  </div>
-</div>

@@ -2,18 +2,24 @@
 <html lang="en" ng-app="phonecatApp">
   <head>
     <meta charset="utf-8">
-    <title>Google Phone Gallery</title>
+    <title>Sumit Sheoran| Web Developer</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/animate.css/animate.min.css">
     <link rel="stylesheet" href="app.css" />
-    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular/angular.js"></script>    
     <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>  
+    <script src="app.js"></script>
     <script src="app.module.js"></script>
     <script src="app.config.js"></script>
+    <script src="manuali_dependencies/bootstrap/ui-bootstrap-tpls-2.2.0.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="core/core.module.js"></script>
     <script src="core/checkmark/checkmark.filter.js"></script>
     <script src="core/phone/phone.module.js"></script>
     <script src="core/phone/phone.service.js"></script>
+    <script src="core/tech/tech.module.js"></script>
+    <script src="core/tech/tech.service.js"></script>
     <script src="home/home.module.js"></script>
     <script src="home/home.component.js"></script>
     <script src="phone-list/phone-list.module.js"></script>
@@ -22,23 +28,104 @@
     <script src="phone-detail/phone-detail.component.js"></script>
     <script src="contact/contact.module.js"></script>
     <script src="contact/contact.component.js"></script>
+    <script src="about/about.module.js"></script>
+    <script src="about/about.component.js"></script>
+    <script src="technostack/tech-stack.module.js"></script>
+    <script src="technostack/tech-stack.component.js"></script>
   </head>
+
   <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-3">
-                <h3><a href="#!/home">Home</a></h3>
-                <ul>
-                    <li><a href="#!/phones">Projects</a></li>
-                    <li><a href="#!/contact">Contact</a></li>
-                    <li><a href="#!/about">About</a></li>
-                    <li><a href="#!/technologies">Technologies</a></li>
-                </ul>
-            </div>
-            <div class="col-xs-9">
-                <div ng-view></div>
-            </div>
+
+  <nav class="navbar navbar-default navbar-bs sidebar" role="navigation" onmouseenter="repeater=setInterval(a(), 100);" onmouseleave="repeater=setInterval(b(), 100);" >
+      <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#!/home">S<span style="color:red;">&diams;</span>S</a>
+<!--         <button type="button" class="navbar-toggle navbar-toggle-bs" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1"> -->
+        <button type="button" class="navbar-toggle navbar-toggle-bs btn-navbar" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>      
+      </div>
+      <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1" ng-class="!navCollapsed && 'in'">
+        <ul class="nav navbar-nav">
+          <li><a ng-class="getClass('/about')" href="#!/about">About<span class="pull-right"><span class="pull-left showopacity glyphicon glyphicon-user"></span></span></a></li>
+          <li><a ng-class="getClass('/techstack')" href="#!/techstack">Stack<span class="pull-right"><span class="pull-left showopacity glyphicon glyphicon-wrench"></span></span></a></li>
+          <li><a ng-class="getClass('/phones')" href="#!/phones">Portfolio<span class="pull-right"><span class="pull-left showopacity glyphicon glyphicon-pushpin"></span></span></a></li>
+          <li><a ng-class="getClass('/contact')" href="#!/contact">Contact<span class="pull-right"><span class="pull-left showopacity glyphicon glyphicon-envelope"></span></span></a></li>
+        </ul>
+<!--         <ul class="nav navbar-nav">
+          <li><a ng-class="getClass('/about')" href="#!/about">About<span class="pull-right"><span class="pull-left showopacity glyphicon glyphicon-home"></span><span class="pull-right badge badge-inactive">5</span></span></a></li>
+          <li><a ng-class="getClass('/techstack')" href="#!/techstack">Stack<span class="pull-right"><span class="pull-left showopacity glyphicon glyphicon-home"></span><span class="pull-right badge badge-active"><b>+</b></span></span></a></li>
+          <li><a ng-class="getClass('/phones')" href="#!/phones">Portfolio<span class="pull-right"><span class="pull-left showopacity glyphicon glyphicon-home"></span><span class="pull-right badge badge-inactive">+</span></span></a></li>
+          <li><a ng-class="getClass('/contact')" href="#!/contact">Contact<span class="pull-right"><span class="pull-left showopacity glyphicon glyphicon-home"></span><span style="padding-right:22px;"></span></span></a></li>
+        </ul> -->
+      </div>
+    </div>
+  </nav>
+
+
+<div class="main">
+    <div class="container searchpanel">
+        <div class="row adjust-padding">
+            <div ng-view></div>    
         </div>
     </div>
+</div>
+
   </body>
+
+<script>
+this.getClass = function (path) {
+  return ($location.path().substr(0, path.length) === path) ? 'active' : '';
+}
+// Animating Green Marker
+//   var repeater;
+//   function a(){
+//     var greenwidth = 61.000000;
+//     var timefade = 0;
+//     var efefefwidth;
+//     if($(window).width() > 768 && $(window).width() < 1330){
+//     console.log("Hello!");
+//     for(var i=0; i<60; i++){
+//       greenwidth -= 1.016666;
+//       efefefwidth = greenwidth;
+//       timefade += 7.05;
+//       x(timefade,greenwidth,efefefwidth);
+//       }
+//       function x(timefade,greenwidth,efefefwidth) { setTimeout(function(){
+//         $('nav.sidebar .container-fluid .navbar-nav>li>a.active').css({ background: "linear-gradient(to right, green 0%, green "+  greenwidth +"%, #efefef "+ efefefwidth + "%"});
+//         },timefade);
+//       }
+//       clearInterval(repeater);
+//     }
+//   }
+
+//   function b(){
+//     var greenwidth = 0;
+//     var timefade = 0;
+//     var efefefwidth;
+//     if($(window).width() > 768 && $(window).width() < 1330){
+//     for(var i=0; i<60; i++){
+//       greenwidth += 1.016666;
+//       efefefwidth = greenwidth;
+//       timefade += 7.05;
+//       x(timefade,greenwidth,efefefwidth);
+//     }
+//     function x (timefade,greenwidth,efefefwidth){ setTimeout(function(){
+//         $('nav.sidebar .container-fluid .navbar-nav>li>a.active').css({ background: "linear-gradient(to right, green 0%, green "+  greenwidth +"%, #efefef "+ efefefwidth + "%"});
+//     },timefade);
+//   }
+//     clearInterval(repeater);
+//   }
+// }
+
+  // $(function(){ 
+  //   var navMain = $("#bs-sidebar-navbar-collapse-1");
+  //   navMain.on("click", "a", null, function () {
+  //     navMain.collapse('hide');
+  //   });
+  // });
+</script>
 </html>

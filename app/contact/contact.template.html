@@ -1,9 +1,18 @@
-  <form novalidate class="css-form">
-    Name: <input type="text" ng-model="user.name" required /><br />
-    E-mail: <input type="email" ng-model="user.email" required /><br />
-    Message: <input type="text" ng-model="user.message" required /><br />
-    <input type="button" ng-click="reset()" value="Reset" />
-    <input type="submit" ng-click="update(user)" value="Send" />
+<div class="col-xs-2 col-sm-4 col-md-4"><div class="row" style="height:32px; border-bottom:1px solid #ababab;"></div><div class="row"></div></div>
+  <div class="col-xs-8 col-sm-4 col-md-4">
+    <h2 class="text-center"> E-mail </h2>
+  </div>
+  <div class="col-xs-2 col-sm-4 col-md-4"><div class="row" style="height:32px; border-bottom:1px solid #ababab;"></div><div class="row"></div></div>
+  <div class="row"></div>
+<div class="col-xs-12">
+  <form novalidate class="form-group css-form">
+    <label for="text">Name:</label>
+    <input type="text" class="form-control" ng-model="user.name" required /><br />
+    <label for="email">Email address:</label>
+    <input type="email" class="form-control" ng-model="user.email" required /><br />
+    <label for="message">Message:</label>
+    <textarea class="form-control" rows="5" id="message" ng-model="user.message" required ></textarea><br />
+    <button class="btn btn-default" ng-click="reset()" value="Reset" />Reset</button>
+    <button type="submit" class="btn btn-default" ng-click="update(user)" value="Send" />Submit</button>
   </form>
-  <pre>user = {{user | json}}</pre>
-  <pre>master = {{master | json}}</pre>
+</div>
